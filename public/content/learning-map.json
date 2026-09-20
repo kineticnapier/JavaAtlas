@@ -1,15 +1,97 @@
 {
   "chapters": [
     {
-      "id": "example-basics",
-      "title": { "ja": "Example: 基礎", "en": "Example: Basics" },
-      "description": { "ja": "テンプレートの main/support ノード構造を確認する最小マップです。", "en": "A minimal map demonstrating main and support nodes in the template." },
+      "id": "basics",
+      "title": {"ja":"Java Basics","en":"Java Basics"},
+      "description": {"ja":"実行開始点、基本型、文字列、static を押さえます。","en":"Learn the entry point, basic types, strings, and static members."},
       "nodes": [
-        { "id": "example-console-write-line", "kind": "main", "code": "Console.WriteLine(\"Hello\");" },
-        { "id": "example-value-reference-types", "kind": "main", "prerequisites": ["example-console-write-line"], "code": "int x = 10;" },
-        { "id": "example-json-deserialize", "kind": "main", "prerequisites": ["example-value-reference-types"], "code": "JsonSerializer.Deserialize<T>(json);" },
-        { "id": "example-cs0103", "kind": "support", "attachedTo": "example-console-write-line" },
-        { "id": "example-null-reference", "kind": "support", "attachedTo": "example-value-reference-types" }
+        {"id":"hello-world","kind":"main","code":"System.out.println(\"Hello\");"},
+        {"id":"main-method","kind":"main","prerequisites":["hello-world"]},
+        {"id":"primitive-vs-reference","kind":"main","prerequisites":["main-method"]},
+        {"id":"string-immutability","kind":"main","prerequisites":["primitive-vs-reference"]},
+        {"id":"cannot-find-symbol","kind":"support","attachedTo":"main-method"}
+      ]
+    },
+    {
+      "id": "oop",
+      "title": {"ja":"Types & OOP","en":"Types & OOP"},
+      "description": {"ja":"型、ジェネリクス、等価性、モダンなデータ型を学びます。","en":"Learn types, generics, equality, and modern data types."},
+      "nodes": [
+        {"id":"generics","kind":"main"},
+        {"id":"wildcards","kind":"main","prerequisites":["generics"]},
+        {"id":"equals-hashcode","kind":"main","prerequisites":["generics"]},
+        {"id":"record-type","kind":"main","prerequisites":["equals-hashcode"]},
+        {"id":"class-cast-exception","kind":"support","attachedTo":"generics"}
+      ]
+    },
+    {
+      "id": "collections",
+      "title": {"ja":"Collections","en":"Collections"},
+      "description": {"ja":"List・Set・Map と代表的な落とし穴を扱います。","en":"Work with List, Set, Map, and common collection pitfalls."},
+      "nodes": [
+        {"id":"list-basics","kind":"main"},
+        {"id":"set-basics","kind":"main","prerequisites":["list-basics"]},
+        {"id":"map-basics","kind":"main","prerequisites":["list-basics"]},
+        {"id":"hashmap-basics","kind":"main","prerequisites":["map-basics"]},
+        {"id":"concurrent-modification-exception","kind":"support","attachedTo":"list-basics"},
+        {"id":"mutable-hashmap-key","kind":"support","attachedTo":"hashmap-basics"}
+      ]
+    },
+    {
+      "id": "exceptions",
+      "title": {"ja":"Exceptions","en":"Exceptions"},
+      "description": {"ja":"Javaの検査例外と代表的な実行時例外を整理します。","en":"Understand checked exceptions and common runtime exceptions."},
+      "nodes": [
+        {"id":"checked-vs-unchecked","kind":"main"},
+        {"id":"null-pointer-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
+        {"id":"unreported-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
+        {"id":"io-exception","kind":"main","prerequisites":["checked-vs-unchecked"]}
+      ]
+    },
+    {
+      "id": "streams",
+      "title": {"ja":"Streams & Optional","en":"Streams & Optional"},
+      "description": {"ja":"Stream の変換・遅延評価と Optional を学びます。","en":"Learn stream transformations, laziness, and Optional."},
+      "nodes": [
+        {"id":"stream-laziness","kind":"main"},
+        {"id":"stream-map-filter","kind":"main","prerequisites":["stream-laziness"]},
+        {"id":"stream-to-list","kind":"main","prerequisites":["stream-map-filter"]},
+        {"id":"optional","kind":"main"},
+        {"id":"stream-reuse","kind":"support","attachedTo":"stream-laziness"},
+        {"id":"optional-get-without-check","kind":"support","attachedTo":"optional"}
+      ]
+    },
+    {
+      "id": "io",
+      "title": {"ja":"I/O & Network","en":"I/O & Network"},
+      "description": {"ja":"Path・Files・HttpClient の基本を扱います。","en":"Use Path, Files, and the standard HttpClient."},
+      "nodes": [
+        {"id":"path-basics","kind":"main"},
+        {"id":"files-read-string","kind":"main","prerequisites":["path-basics"]},
+        {"id":"httpclient-get","kind":"main","prerequisites":["files-read-string"]}
+      ]
+    },
+    {
+      "id": "concurrency",
+      "title": {"ja":"Concurrency","en":"Concurrency"},
+      "description": {"ja":"ExecutorService、CompletableFuture、仮想スレッドへ進みます。","en":"Progress from ExecutorService to CompletableFuture and virtual threads."},
+      "nodes": [
+        {"id":"executor-service","kind":"main"},
+        {"id":"completable-future","kind":"main","prerequisites":["executor-service"]},
+        {"id":"virtual-threads","kind":"main","prerequisites":["executor-service"]},
+        {"id":"shared-mutable-state","kind":"support","attachedTo":"executor-service"}
+      ]
+    },
+    {
+      "id": "modern-java",
+      "title": {"ja":"Modern Java","en":"Modern Java"},
+      "description": {"ja":"Java 10以降の主要な構文・型機能をまとめます。","en":"Review major syntax and type-system additions from Java 10 onward."},
+      "nodes": [
+        {"id":"var-local-inference","kind":"main"},
+        {"id":"switch-expression","kind":"main","prerequisites":["var-local-inference"]},
+        {"id":"text-block","kind":"main","prerequisites":["switch-expression"]},
+        {"id":"pattern-matching-instanceof","kind":"main","prerequisites":["switch-expression"]},
+        {"id":"sealed-classes","kind":"main","prerequisites":["pattern-matching-instanceof"]}
       ]
     }
   ]
