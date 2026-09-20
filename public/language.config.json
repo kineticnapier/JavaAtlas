@@ -1,34 +1,34 @@
 {
-  "id": "template",
-  "name": "Example Language",
-  "storagePrefix": "language-atlas-template",
+  "id": "java",
+  "name": "Java",
+  "storagePrefix": "java-atlas",
   "site": {
-    "title": "Language Atlas",
-    "description": "A searchable programming-language reference for recipes, diagnostics, pitfalls, and concepts."
+    "title": "Java Atlas",
+    "description": "A searchable Java reference for recipes, exceptions, compiler diagnostics, pitfalls, and concepts."
   },
   "logo": {
-    "prefix": "Language ",
+    "prefix": "Java ",
     "accent": "Atlas",
     "suffix": ""
   },
   "hero": {
     "eyebrow": {
-      "ja": "逆引きプログラミング言語リファレンス",
-      "en": "Reverse lookup programming-language reference"
+      "ja": "逆引き Java リファレンス",
+      "en": "Reverse lookup Java reference"
     },
     "description": {
-      "ja": "コード例、例外、コンパイル診断、仕組みをひとつの検索で。",
-      "en": "Search recipes, exceptions, compiler diagnostics, and concepts in one place."
+      "ja": "Java のコード例、例外、コンパイル診断、仕組みをひとつの検索で。",
+      "en": "Search Java recipes, exceptions, compiler diagnostics, and concepts in one place."
     }
   },
   "syntax": {
-    "prismLanguage": "csharp"
+    "prismLanguage": "java"
   },
   "search": {
     "placeholder": {
-      "ja": "例: JSON / null / compiler error",
-      "en": "e.g. JSON / null / compiler error"
+      "ja": "例: Stream / NullPointerException / record",
+      "en": "e.g. Stream / NullPointerException / record"
     },
-    "quickQueries": ["JSON", "null", "example"]
+    "quickQueries": ["Stream", "NullPointerException", "record", "virtual thread"]
   }
 }
