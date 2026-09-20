@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { CONTENT_CATEGORIES } from '../src/content-loader.js';
+import { CONTENT_CATEGORIES, loadLocalizedContent } from '../src/content-loader.js';
 
 async function readJson(path) {
   return JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
@@ -52,4 +52,19 @@ test('JavaAtlas ships exactly 50 real articles with ja/en locale parity', async 
       for (const related of article.related) assert.ok(ids.has(related), `${article.id}: missing related article ${related}`);
     }
   }
+});
+
+test('the shipped Java corpus can be localized at runtime in ja and en', async () => {
+  async function fetchJson(path) {
+    const normalized = path.replace(/^\.\//, '');
+    return readJson(`../public/${normalized}`);
+  }
+
+  const ja = await loadLocalizedContent({ fetchJson, locale: 'ja' });
+  const en = await loadLocalizedContent({ fetchJson, locale: 'en' });
+
+  assert.equal(ja.articles.length, 50);
+  assert.equal(en.articles.length, 50);
+  assert.equal(ja.articles[0].requestedLocale, 'ja');
+  assert.equal(en.articles[0].requestedLocale, 'en');
 });
