@@ -1,0 +1,3 @@
+{
+  "print-line":{"title":"Print one line to standard output","short":"Use System.out.println for console output","summary":"The basic pattern for printing a value followed by a newline.","why":"It is the simplest output method for small programs and quick checks.","tips":["Use print when you do not want a trailing newline."],"tags":["println","console"]}
+}

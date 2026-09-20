@@ -1,0 +1,4 @@
+[
+  {"id":"java-main","type":"concept","since":8,"until":null,"status":"standard","bad":null,"good":null,"code":"public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, JavaAtlas!\");\n  }\n}","related":["print-line","null-pointer-exception"],"topics":["basics","syntax"]},
+  {"id":"classes-and-objects","type":"concept","since":8,"until":null,"status":"standard","bad":null,"good":null,"code":"class User {\n  String name;\n  User(String name) { this.name = name; }\n}","related":["java-main","null-pointer-exception"],"topics":["oop","classes"]}
+]

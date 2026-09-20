@@ -1,0 +1,4 @@
+{
+  "java-main":{"title":"main method","short":"Entry point of a Java program","summary":"The basic main method where a Java application starts.","why":"Understanding the entry point makes small examples and application startup easier to follow.","tips":["public static void main(String[] args) is the conventional form."],"tags":["main","entry point"]},
+  "classes-and-objects":{"title":"Classes and objects","short":"Group data and behavior into types","summary":"Defines a class and creates objects with new.","why":"Most Java APIs are organized around object-oriented types.","tips":["Constructors establish initial object state."],"tags":["class","object","oop"]}
+}

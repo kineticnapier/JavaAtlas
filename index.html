@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Javaのコード例・例外・コンパイルエラーを逆引きできるJavaAtlas" />
+    <title>JavaAtlas</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">JAVA REVERSE REFERENCE</p>
+        <h1>JavaAtlas</h1>
+        <p id="tagline">Javaのコード例、例外、コンパイルエラーをひとつに。</p>
+      </div>
+      <label class="locale-picker">Language
+        <select id="locale-select">
+          <option value="ja">日本語</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="Search and filters">
+        <input id="search-input" type="search" placeholder="例: NullPointerException, Stream, List..." />
+        <label>Java
+          <select id="version-select">
+            <option value="all">All</option>
+            <option value="8">8</option><option value="11">11</option><option value="17">17</option>
+            <option value="21">21</option><option value="25">25</option><option value="27">27</option>
+          </select>
+        </label>
+        <label class="check"><input id="preview-toggle" type="checkbox" /> Preview</label>
+      </section>
+
+      <nav class="view-tabs" aria-label="Views">
+        <button class="tab active" data-view="articles">Articles</button>
+        <button class="tab" data-view="map">Learning Map</button>
+      </nav>
+
+      <section id="articles-view">
+        <p id="result-summary" class="result-summary"></p>
+        <div id="article-grid" class="article-grid"></div>
+      </section>
+
+      <section id="map-view" hidden>
+        <div id="learning-map" class="learning-map"></div>
+      </section>
+    </main>
+
+    <footer>JavaAtlas · Static Vite app · Java 8–27 compatibility aware</footer>
+  </body>
+</html>

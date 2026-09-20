@@ -1,0 +1,4 @@
+{
+  "java-main":{"title":"mainメソッド","short":"Javaプログラムの入口","summary":"Javaアプリケーションが開始する基本のmainメソッドです。","why":"最初に実行される場所を理解すると、サンプルコードの構造を追いやすくなります。","tips":["public static void main(String[] args) が基本形です。"],"tags":["main","entry point"]},
+  "classes-and-objects":{"title":"クラスとオブジェクト","short":"データと処理を型としてまとめる","summary":"クラスを定義し、newでオブジェクトを生成する基本を扱います。","why":"Javaの多くのAPIはオブジェクト指向の型として構成されています。","tips":["コンストラクタで初期状態を作れます。"],"tags":["class","object","oop"]}
+}

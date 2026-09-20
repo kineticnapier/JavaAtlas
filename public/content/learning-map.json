@@ -1,0 +1,20 @@
+{
+  "chapters": [
+    {
+      "id": "basics",
+      "title": {"ja": "Java基礎", "en": "Java Basics"},
+      "nodes": [
+        {"id":"java-main","kind":"main","articleId":"java-main","prerequisites":[],"lane":0,"code":"public static void main(String[] args) { }"},
+        {"id":"classes-and-objects","kind":"main","articleId":"classes-and-objects","prerequisites":["java-main"],"lane":0,"code":"var user = new User(\"Ada\");"},
+        {"id":"null-pointer-exception","kind":"support","articleId":"null-pointer-exception","attachedTo":"classes-and-objects","lane":1}
+      ]
+    },
+    {"id":"types-oop","title":{"ja":"型とOOP","en":"Types & OOP"},"nodes":[]},
+    {"id":"collections-generics","title":{"ja":"コレクションとジェネリクス","en":"Collections & Generics"},"nodes":[]},
+    {"id":"exceptions","title":{"ja":"例外","en":"Exceptions"},"nodes":[]},
+    {"id":"streams-optional","title":{"ja":"StreamとOptional","en":"Streams & Optional"},"nodes":[]},
+    {"id":"io","title":{"ja":"I/O","en":"I/O"},"nodes":[]},
+    {"id":"concurrency","title":{"ja":"並行処理","en":"Concurrency"},"nodes":[]},
+    {"id":"modern-java","title":{"ja":"Modern Java","en":"Modern Java"},"nodes":[]}
+  ]
+}

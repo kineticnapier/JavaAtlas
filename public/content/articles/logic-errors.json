@@ -1,0 +1,3 @@
+[
+  {"id":"string-equality-double-equals","type":"logic","since":8,"until":null,"status":"standard","bad":"if (a == b) { }","good":"if (a.equals(b)) { }","code":null,"related":["classes-and-objects"],"topics":["strings","equality"]}
+]

@@ -1,0 +1,3 @@
+[
+  {"id":"null-pointer-exception","type":"exception","since":8,"until":null,"status":"standard","bad":"String value = null;\nSystem.out.println(value.length());","good":"if (value != null) {\n  System.out.println(value.length());\n}","code":null,"related":["classes-and-objects"],"topics":["exceptions","null"]}
+]

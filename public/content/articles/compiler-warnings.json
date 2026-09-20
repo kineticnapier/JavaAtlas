@@ -1,0 +1,3 @@
+[
+  {"id":"unchecked-cast-warning","type":"compiler-warning","since":8,"until":null,"status":"standard","bad":"List raw = List.of(\"a\");\nList<String> names = (List<String>) raw;","good":"List<String> names = List.of(\"a\");","code":null,"related":["classes-and-objects"],"topics":["compiler","generics"]}
+]

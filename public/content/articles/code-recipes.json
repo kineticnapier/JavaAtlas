@@ -1,0 +1,3 @@
+[
+  {"id":"print-line","type":"code","since":8,"until":null,"status":"standard","bad":null,"good":null,"code":"System.out.println(\"Hello\");","related":["java-main"],"topics":["basics","console"]}
+]

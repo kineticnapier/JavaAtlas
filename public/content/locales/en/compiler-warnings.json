@@ -1,0 +1,3 @@
+{
+  "unchecked-cast-warning":{"title":"unchecked cast warning","short":"Compiler cannot verify a generic cast","summary":"Casting from a raw type to a parameterized generic type can produce an unchecked warning.","why":"Ignoring it can hide a later ClassCastException.","tips":["Prefer typed collections instead of raw types."],"tags":["unchecked","generics"]}
+}

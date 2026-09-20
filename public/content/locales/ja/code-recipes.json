@@ -1,0 +1,3 @@
+{
+  "print-line":{"title":"標準出力に1行表示する","short":"System.out.printlnで文字列を出力","summary":"コンソールへ値を1行出力する基本パターンです。","why":"動作確認や小さなプログラムで最も頻繁に使う出力方法です。","tips":["改行なしならprintを使います。"],"tags":["println","console"]}
+}

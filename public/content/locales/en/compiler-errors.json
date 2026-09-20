@@ -1,0 +1,3 @@
+{
+  "cannot-find-symbol":{"title":"cannot find symbol","short":"Compiler cannot resolve a name","summary":"Reported when a variable, type, method, or other symbol cannot be found in the current context.","why":"Common causes include misspellings, missing declarations, and missing imports.","tips":["Read both the symbol and location lines in javac output."],"tags":["javac","cannot find symbol"]}
+}

@@ -1,0 +1,3 @@
+[
+  {"id":"cannot-find-symbol","type":"compiler-error","since":8,"until":null,"status":"standard","bad":"System.out.println(missingName);","good":"String name = \"Java\";\nSystem.out.println(name);","code":null,"related":["java-main"],"topics":["compiler","names"]}
+]

@@ -1,0 +1,3 @@
+{
+  "unchecked-cast-warning":{"title":"unchecked cast警告","short":"型安全性をコンパイラが確認できないキャスト","summary":"raw typeなどからジェネリック型へキャストすると、実行時の型安全性を保証できず警告されます。","why":"警告を無視すると後でClassCastExceptionにつながる場合があります。","tips":["可能ならraw typeを使わず最初から型引数を付けます。"],"tags":["unchecked","generics"]}
+}

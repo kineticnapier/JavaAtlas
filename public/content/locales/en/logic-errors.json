@@ -1,0 +1,3 @@
+{
+  "string-equality-double-equals":{"title":"Comparing String with ==","short":"Accidentally compare references instead of content","summary":"Using == for String content can return false even when the text looks identical.","why":"== compares references; use equals for String content.","tips":["Objects.equals is useful when either side may be null."],"tags":["String","equals","=="]}
+}

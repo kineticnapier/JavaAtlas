@@ -1,0 +1,3 @@
+{
+  "cannot-find-symbol":{"title":"cannot find symbol","short":"名前を解決できないコンパイルエラー","summary":"変数・型・メソッドなどの名前が現在のスコープから見つからないときに出ます。","why":"スペルミス、宣言漏れ、import漏れなど原因が幅広いため基本的な診断です。","tips":["エラー行だけでなくsymbolとlocationも確認します。"],"tags":["javac","cannot find symbol"]}
+}

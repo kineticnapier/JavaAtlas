@@ -1,0 +1,3 @@
+{
+  "string-equality-double-equals":{"title":"Stringを==で比較する","short":"内容ではなく参照を比較してしまう","summary":"Stringの内容比較に==を使うと、同じ文字列でもfalseになる場合があります。","why":"==は参照比較で、文字列内容の比較にはequalsを使う必要があります。","tips":["null安全性が必要ならObjects.equalsも使えます。"],"tags":["String","equals","=="]}
+}
