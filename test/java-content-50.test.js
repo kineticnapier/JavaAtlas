@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { CONTENT_CATEGORIES, loadLocalizedContent } from '../src/content-loader.js';
+import { buildQuestChapter } from '../src/quest-map.js';
 
 async function readJson(path) {
   return JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
@@ -31,13 +32,18 @@ test('JavaAtlas ships exactly 50 real articles with ja/en locale parity', async 
       assert.ok(Number.isInteger(article.since) && article.since >= 8, `${article.id}: missing Java since version`);
       assert.ok(Array.isArray(article.topics) && article.topics.length > 0, `${article.id}: missing topics`);
       assert.ok(Array.isArray(article.related), `${article.id}: related must be an array`);
+      assert.ok(article.related.length >= 2, `${article.id}: expected at least two related articles`);
       assert.ok(!ids.has(article.id), `duplicate id: ${article.id}`);
       ids.add(article.id);
 
-      assert.ok(ja[article.id], `${article.id}: missing ja locale`);
-      assert.ok(en[article.id], `${article.id}: missing en locale`);
-      assert.doesNotMatch(ja[article.id].title, /Example/i, `${article.id}: example title remains`);
-      assert.doesNotMatch(en[article.id].title, /Example/i, `${article.id}: example title remains`);
+      for (const [locale, entry] of [['ja', ja[article.id]], ['en', en[article.id]]]) {
+        assert.ok(entry, `${article.id}: missing ${locale} locale`);
+        assert.equal(typeof entry.why, 'string', `${article.id}: missing ${locale} why`);
+        assert.ok(entry.why.trim(), `${article.id}: empty ${locale} why`);
+        assert.equal(typeof entry.tips, 'string', `${article.id}: missing ${locale} tips`);
+        assert.ok(entry.tips.trim(), `${article.id}: empty ${locale} tips`);
+        assert.doesNotMatch(entry.title, /Example/i, `${article.id}: example title remains`);
+      }
     }
 
     assert.deepEqual(new Set(Object.keys(ja)), new Set(base.map(article => article.id)), `${file}: ja locale parity mismatch`);
@@ -67,4 +73,23 @@ test('the shipped Java corpus can be localized at runtime in ja and en', async (
   assert.equal(en.articles.length, 50);
   assert.equal(ja.articles[0].requestedLocale, 'ja');
   assert.equal(en.articles[0].requestedLocale, 'en');
+  assert.ok(ja.articles.every(article => article.why && article.tips));
+  assert.ok(en.articles.every(article => article.why && article.tips));
+});
+
+test('learning-map main nodes inherit representative code from their article', () => {
+  const articles = [{
+    id: 'hello-world',
+    type: 'code',
+    title: 'Hello',
+    short: 'Hello',
+    code: 'System.out.println("Hello");'
+  }];
+  const chapter = {
+    id: 'basics',
+    nodes: [{ id: 'hello-world', kind: 'main' }]
+  };
+
+  const graph = buildQuestChapter(articles, chapter);
+  assert.equal(graph.nodes[0].code, 'System.out.println("Hello");');
 });
