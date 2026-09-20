@@ -1,13 +1,7 @@
 import { localizeArticles } from './article-localization.js';
 
 export const CONTENT_CATEGORIES = [
-  'items.json',
-  'exceptions.json',
-  'compiler-errors.json',
-  'compiler-warnings.json',
-  'concepts.json',
-  'code-recipes.json',
-  'logic-errors.json'
+  'java-core.json'
 ];
 
 export async function loadLocalizedContent({ fetchJson, locale, fallbackLocale = 'ja' }) {
