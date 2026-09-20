@@ -1,4 +1,4 @@
-const REQUIRED_TEXT_FIELDS = ['title', 'short', 'summary', 'why', 'tips'];
+const REQUIRED_TEXT_FIELDS = ['title', 'short', 'summary'];
 
 export function isCompleteLocaleEntry(entry) {
   if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return false;
