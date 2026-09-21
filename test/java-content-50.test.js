@@ -17,10 +17,11 @@ test('JavaAtlas config is Java-specific', async () => {
   assert.equal(config.storagePrefix, 'java-atlas');
 });
 
-test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async () => {
+test('JavaAtlas ships exactly 130 real articles with ja/en locale parity', async () => {
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-001.json'));
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-002.json'));
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-003.json'));
+  assert.ok(CONTENT_CATEGORIES.includes('java-expansion-004.json'));
 
   const ids = new Set();
   let count = 0;
@@ -29,7 +30,6 @@ test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async
     const base = await readJson(`../public/content/articles/${file}`);
     const ja = await readJson(`../public/content/locales/ja/${file}`);
     const en = await readJson(`../public/content/locales/en/${file}`);
-
     for (const article of base) {
       count += 1;
       assert.ok(article.id && article.type, `${file}: invalid article`);
@@ -39,7 +39,6 @@ test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async
       assert.ok(article.related.length >= 2, `${article.id}: expected at least two related articles`);
       assert.ok(!ids.has(article.id), `duplicate id: ${article.id}`);
       ids.add(article.id);
-
       for (const [locale, entry] of [['ja', ja[article.id]], ['en', en[article.id]]]) {
         assert.ok(entry, `${article.id}: missing ${locale} locale`);
         assert.equal(typeof entry.why, 'string', `${article.id}: missing ${locale} why`);
@@ -49,32 +48,22 @@ test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async
         assert.doesNotMatch(entry.title, /Example/i, `${article.id}: example title remains`);
       }
     }
-
     assert.deepEqual(new Set(Object.keys(ja)), new Set(base.map(article => article.id)), `${file}: ja locale parity mismatch`);
     assert.deepEqual(new Set(Object.keys(en)), new Set(base.map(article => article.id)), `${file}: en locale parity mismatch`);
   }
-
-  assert.equal(count, 120);
-
+  assert.equal(count, 130);
   for (const file of CONTENT_CATEGORIES) {
     const base = await readJson(`../public/content/articles/${file}`);
-    for (const article of base) {
-      for (const related of article.related) assert.ok(ids.has(related), `${article.id}: missing related article ${related}`);
-    }
+    for (const article of base) for (const related of article.related) assert.ok(ids.has(related), `${article.id}: missing related article ${related}`);
   }
 });
 
 test('the shipped Java corpus can be localized at runtime in ja and en', async () => {
-  async function fetchJson(path) {
-    const normalized = path.replace(/^\.\//, '');
-    return readJson(`../public/${normalized}`);
-  }
-
+  async function fetchJson(path) { return readJson(`../public/${path.replace(/^\.\//, '')}`); }
   const ja = await loadLocalizedContent({ fetchJson, locale: 'ja' });
   const en = await loadLocalizedContent({ fetchJson, locale: 'en' });
-
-  assert.equal(ja.articles.length, 120);
-  assert.equal(en.articles.length, 120);
+  assert.equal(ja.articles.length, 130);
+  assert.equal(en.articles.length, 130);
   assert.equal(ja.articles[0].requestedLocale, 'ja');
   assert.equal(en.articles[0].requestedLocale, 'en');
   assert.ok(ja.articles.every(article => article.why && article.tips));
