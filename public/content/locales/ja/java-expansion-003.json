@@ -1,8 +1,8 @@
 {
   "record-classes":{"title":"recordクラス","short":"データ保持用のクラスを簡潔に定義する","why":"recordは状態を表す部品を宣言すると、コンストラクタやアクセサ、equals、hashCode、toStringをまとめて提供します。","tips":"値を表す型に向いています。可変状態や複雑な継承が必要な型では通常のclassも検討します。"},
   "sealed-type-hierarchy":{"title":"sealed型階層","short":"継承・実装できる型を限定する","why":"sealedを使うと、型階層に参加できる直接の派生型をpermitsで限定できます。","tips":"扱う種類が閉じているモデルで有効です。派生側はfinal、sealed、non-sealedのいずれかを明示します。"},
-  "files-read-string":{"title":"ファイルを文字列として読む","short":"Files.readStringで小さなテキストファイルを読む","why":"Files.readStringはファイル全体をStringとして読む簡潔な方法です。","tips":"巨大なファイルでは全体をメモリへ載せず、BufferedReaderなどで順次読む方法を選びます。"},
-  "stream-to-list":{"title":"StreamをListへ変換する","short":"Stream.toListで結果をまとめる","why":"Java 16以降ではStream.toList()で処理結果を簡潔にListへ集められます。","tips":"返るListは変更不可です。変更可能なListが必要ならcollectなど別の方法を使います。"},
+  "files-read-text-utf8":{"title":"UTF-8のファイルを文字列として読む","short":"Files.readStringで文字コードを明示して読む","why":"Files.readStringはファイル全体をStringとして読む簡潔な方法で、Charsetも明示できます。","tips":"巨大なファイルでは全体をメモリへ載せず、BufferedReaderなどで順次読む方法を選びます。"},
+  "stream-to-unmodifiable-list":{"title":"Streamを変更不可Listへ変換する","short":"Stream.toListで結果をまとめる","why":"Java 16以降ではStream.toList()で処理結果を簡潔にListへ集められます。","tips":"返るListは変更不可です。変更可能なListが必要ならcollectなど別の方法を使います。"},
   "concurrent-modification-exception":{"title":"ConcurrentModificationException","short":"走査中のコレクションを不正に変更した","why":"拡張forなどで走査しているコレクションを直接変更すると、走査器が構造変更を検出して例外になることがあります。","tips":"条件削除ならremoveIf、Iteratorを使うならIterator.removeなど、その走査方法に対応した変更手段を使います。"},
   "number-format-exception":{"title":"NumberFormatException","short":"数値でない文字列を数値へ変換しようとした","why":"parseIntなどへ対象の形式で解釈できない文字列を渡すと発生します。","tips":"外部入力は変換前に形式を確認し、失敗があり得る場所では例外を適切に扱います。"},
   "unreported-exception":{"title":"unreported exception","short":"検査例外を処理も宣言もしていない","why":"IOExceptionなどの検査例外を投げ得る処理では、catchするかthrowsで呼び出し側へ伝える必要があります。","tips":"その場で回復できるならcatchし、上位層に判断させるならthrowsを使います。"},
