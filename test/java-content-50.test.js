@@ -17,7 +17,7 @@ test('JavaAtlas config is Java-specific', async () => {
   assert.equal(config.storagePrefix, 'java-atlas');
 });
 
-test('JavaAtlas ships exactly 110 real articles with ja/en locale parity', async () => {
+test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async () => {
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-001.json'));
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-002.json'));
 
@@ -53,7 +53,7 @@ test('JavaAtlas ships exactly 110 real articles with ja/en locale parity', async
     assert.deepEqual(new Set(Object.keys(en)), new Set(base.map(article => article.id)), `${file}: en locale parity mismatch`);
   }
 
-  assert.equal(count, 110);
+  assert.equal(count, 120);
 
   for (const file of CONTENT_CATEGORIES) {
     const base = await readJson(`../public/content/articles/${file}`);
@@ -72,8 +72,8 @@ test('the shipped Java corpus can be localized at runtime in ja and en', async (
   const ja = await loadLocalizedContent({ fetchJson, locale: 'ja' });
   const en = await loadLocalizedContent({ fetchJson, locale: 'en' });
 
-  assert.equal(ja.articles.length, 110);
-  assert.equal(en.articles.length, 110);
+  assert.equal(ja.articles.length, 120);
+  assert.equal(en.articles.length, 120);
   assert.equal(ja.articles[0].requestedLocale, 'ja');
   assert.equal(en.articles[0].requestedLocale, 'en');
   assert.ok(ja.articles.every(article => article.why && article.tips));
