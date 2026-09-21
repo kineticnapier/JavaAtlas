@@ -1,21 +1,49 @@
-# LanguageAtlas Template
+# JavaAtlas
 
-Programming-language Atlas sites用の共通テンプレートです。CSharpAtlasのUI・検索・学習マップを土台にしつつ、言語固有値を設定とコンテンツへ分離しています。
+Javaのコード例・仕組み・例外・コンパイル診断・論理的な落とし穴を、検索と学習マップから逆引きできるリファレンスです。
 
-## 派生repoで主に変更する場所
+LanguageAtlas-templateをベースにしつつ、Java向けの記事、バージョン情報、トピック、学習順を収録しています。
 
-- `public/language.config.json`: 言語名、サイト名、ロゴ、検索候補、Prism言語、localStorage prefix
-- `public/content/types.json`: 記事タイプと表示名
-- `public/content/topics.json`: トピックと自動分類キーワード
-- `public/content/articles/*.json`: ベース記事
-- `public/content/locales/{ja,en}/*.json`: 本文
+## Features
+
+- コードレシピ、仕組み、例外、コンパイルエラー、コンパイル警告、論理エラーを横断検索
+- 日本語 / English のローカライズ
+- Javaバージョン互換性を記事ごとに管理
+- トピック・種類による絞り込み
+- お気に入り / 最近見た記事
+- 推奨順の学習マップ
+- Cloudflare Pagesで配信できる静的Viteサイト
+
+## Java version metadata
+
+記事データでは、Javaのバージョン差を扱うために `since`、必要に応じて `until`、`status` を持たせます。
+
+```json
+{
+  "id": "stream-to-list",
+  "type": "code",
+  "since": 16,
+  "until": null,
+  "status": "standard"
+}
+```
+
+基本対象はJava 8以降です。Previewやdeprecatedな機能は通常のstandard機能と区別して扱います。
+
+## Content
+
+主なデータは以下にあります。
+
+- `public/language.config.json`: JavaAtlas固有のサイト設定
+- `public/content/articles/*.json`: 記事のベースデータ
+- `public/content/locales/ja/*.json`: 日本語本文
+- `public/content/locales/en/*.json`: 英語本文
+- `public/content/types.json`: 記事タイプ
+- `public/content/topics.json`: トピック
 - `public/content/learning-map.json`: 推奨学習順
+- `public/content/learning-map-code.json`: 学習マップ用の代表コード
 
-`src/` は原則として言語非依存の共通ランタイムです。新しい言語を追加するときは、まず設定とcontentだけの差し替えで済む形を維持してください。
-
-## Example corpus
-
-各カテゴリにCSharpAtlas由来のexample記事を1件ずつ残しています。スキーマ・表示・学習マップの確認用であり、派生repoでは対象言語の記事へ置き換えます。
+記事本文とメタデータはGit管理し、ブラウザ側で検索・絞り込み・関連表示を行います。
 
 ## Development
 
@@ -31,4 +59,8 @@ npm test
 npm run build
 ```
 
-テストではexample corpusのja/en整合性に加え、言語固有のbrandingや識別子が共通ランタイムへ再侵入していないことも確認します。
+コンテンツ追加時は、記事IDの重複、ja/enの対応、`related` の参照先、Javaバージョン情報などをテストで検証します。
+
+## Base template
+
+共通UI・検索・学習マップなどの基盤は [LanguageAtlas-template](https://github.com/kineticnapier/LanguageAtlas-template) を元にしています。Java固有の内容は設定とコンテンツ側へ分離し、共通ランタイムをできるだけ再利用する構成です。
