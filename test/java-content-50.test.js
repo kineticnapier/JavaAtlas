@@ -20,6 +20,7 @@ test('JavaAtlas config is Java-specific', async () => {
 test('JavaAtlas ships exactly 120 real articles with ja/en locale parity', async () => {
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-001.json'));
   assert.ok(CONTENT_CATEGORIES.includes('java-expansion-002.json'));
+  assert.ok(CONTENT_CATEGORIES.includes('java-expansion-003.json'));
 
   const ids = new Set();
   let count = 0;
