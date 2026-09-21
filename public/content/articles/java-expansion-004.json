@@ -1,5 +1,5 @@
 [
-  {"id":"optional-value-handling","type":"concept","since":8,"bad":null,"good":null,"code":"Optional<String> name = findName();\nname.ifPresent(System.out::println);","topics":["oop"],"related":["null-safe-equals","stream-to-unmodifiable-list"]},
+  {"id":"optional-value-handling","type":"concept","since":8,"bad":null,"good":null,"code":"Optional<String> name = findName();\nname.ifPresent(System.out::println);","topics":["oop"],"related":["optional","stream-to-unmodifiable-list"]},
   {"id":"autocloseable-contract","type":"concept","since":8,"bad":null,"good":null,"code":"final class Session implements AutoCloseable { public void close() { /* release */ } }","topics":["io","exceptions"],"related":["try-with-resources","checked-exception-must-be-caught"]},
   {"id":"map-compute-if-absent","type":"code","since":8,"bad":null,"good":null,"code":"groups.computeIfAbsent(key, k -> new ArrayList<>()).add(value);","topics":["collections"],"related":["hashmap-mutable-key-lookup","list-basics"]},
   {"id":"string-lines-stream","type":"code","since":11,"bad":null,"good":null,"code":"long nonBlank = text.lines().filter(s -> !s.isBlank()).count();","topics":["strings","query"],"related":["files-read-text-utf8","stream-to-unmodifiable-list"]},
