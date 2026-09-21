@@ -1,7 +1,7 @@
 [
   {"id":"nested-classes-basics","type":"concept","since":8,"bad":null,"good":null,"code":"class Outer { static class Nested { } }","topics":["oop"],"related":["class-inheritance","static-members"]},
   {"id":"pattern-switch-basics","type":"concept","since":21,"bad":null,"good":null,"code":"String label = switch (value) { case Integer i -> \"int\"; case String s -> \"text\"; default -> \"other\"; };","topics":["syntax","oop"],"related":["switch-expression","pattern-matching-instanceof"]},
-  {"id":"map-merge-counter","type":"code","since":8,"bad":null,"good":null,"code":"counts.merge(word, 1, Integer::sum);","topics":["collections"],"related":["map-basics","map-compute-if-absent"]},
+  {"id":"map-replace-all-values","type":"code","since":8,"bad":null,"good":null,"code":"scores.replaceAll((name, score) -> score + 1);","topics":["collections"],"related":["map-basics","map-compute-if-absent"]},
   {"id":"string-strip","type":"code","since":11,"bad":null,"good":null,"code":"String clean = input.strip();","topics":["strings"],"related":["string-is-blank","string-indent"]},
   {"id":"input-mismatch-exception","type":"exception","since":8,"bad":"new Scanner(\"abc\").nextInt();","good":"Scanner sc = new Scanner(\"123\"); int n = sc.nextInt();","code":null,"topics":["exceptions","numbers"],"related":["number-format-exception","illegal-argument-exception"]},
   {"id":"no-such-file-exception","type":"exception","since":8,"bad":"Files.readString(Path.of(\"missing.txt\"));","good":"if (Files.exists(path)) Files.readString(path);","code":null,"topics":["exceptions","io"],"related":["file-not-found-exception","io-exception"]},
