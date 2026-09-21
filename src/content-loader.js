@@ -3,7 +3,8 @@ import { localizeArticles } from './article-localization.js';
 export const CONTENT_CATEGORIES = [
   'java-core.json',
   'java-expansion-001.json',
-  'java-expansion-002.json'
+  'java-expansion-002.json',
+  'java-expansion-003.json'
 ];
 
 export async function loadLocalizedContent({ fetchJson, locale, fallbackLocale = 'ja' }) {
