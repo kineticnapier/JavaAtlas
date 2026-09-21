@@ -1,0 +1,12 @@
+[
+  {"id":"objects-require-non-null","type":"concept","since":8,"bad":null,"good":null,"code":"this.name = Objects.requireNonNull(name, \"name\");","topics":["null","practical"],"related":["null-pointer-exception","optional-value-handling"]},
+  {"id":"try-finally-semantics","type":"concept","since":8,"bad":null,"good":null,"code":"try { work(); } finally { cleanup(); }","topics":["exceptions","syntax"],"related":["try-with-resources","autocloseable-contract"]},
+  {"id":"list-copy-of","type":"code","since":10,"bad":null,"good":null,"code":"List<String> snapshot = List.copyOf(source);","topics":["collections"],"related":["list-of-immutable","stream-to-unmodifiable-list"]},
+  {"id":"string-strip","type":"code","since":11,"bad":null,"good":null,"code":"String clean = input.strip();","topics":["strings"],"related":["string-is-blank","string-lines-stream"]},
+  {"id":"empty-stack-exception","type":"exception","since":8,"bad":"new Stack<String>().pop();","good":"if (!stack.empty()) stack.pop();","code":null,"topics":["exceptions","collections"],"related":["no-such-element-exception","index-out-of-bounds-list"]},
+  {"id":"malformed-url-exception","type":"exception","since":8,"bad":"new URL(\"not a url\");","good":"new URL(\"https://example.com/\");","code":null,"topics":["exceptions","network"],"related":["illegal-argument-exception","httpclient-get"]},
+  {"id":"abstract-method-not-implemented","type":"compiler-error","since":8,"bad":"class Dog implements Animal { }","good":"class Dog implements Animal { public void speak() { } }","code":null,"topics":["oop","syntax"],"related":["method-does-not-override","interface-default-method"]},
+  {"id":"duplicate-case-label","type":"compiler-error","since":8,"bad":"switch (n) { case 1: break; case 1: break; }","good":"switch (n) { case 1: break; case 2: break; }","code":null,"topics":["syntax"],"related":["switch-expression-yield","switch-not-exhaustive"]},
+  {"id":"unchecked-method-invocation-warning","type":"compiler-warning","since":8,"bad":"List raw = List.of(\"x\"); useStrings(raw);","good":"List<String> values = List.of(\"x\"); useStrings(values);","code":null,"topics":["oop","collections"],"related":["rawtypes-warning","unchecked-cast-warning"]},
+  {"id":"nan-equality-check","type":"logic","since":8,"bad":"if (value == Double.NaN) { }","good":"if (Double.isNaN(value)) { }","code":null,"topics":["numbers"],"related":["equals-with-double","integer-division"]}
+]
