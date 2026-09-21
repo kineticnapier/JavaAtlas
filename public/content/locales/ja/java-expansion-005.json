@@ -1,5 +1,5 @@
 {
-  "pattern-matching-instanceof":{"title":"instanceofのパターンマッチング","short":"型判定とキャストを一度に行う","summary":"instanceofで判定した型の変数をその場で使います。","why":"パターン変数を使うと型判定後の明示的なキャストが不要になり、判定した型と利用する値の対応が明確になります。","tips":"パターン変数が有効な範囲は条件式の制御フローに従います。複雑な条件ではスコープを確認します。","tags":["instanceof","pattern matching"]},
+  "instanceof-pattern-binding":{"title":"instanceofのパターン変数","short":"型判定とキャストを一度に行う","summary":"instanceofで判定した型の変数をその場で使います。","why":"パターン変数を使うと型判定後の明示的なキャストが不要になり、判定した型と利用する値の対応が明確になります。","tips":"パターン変数が有効な範囲は条件式の制御フローに従います。複雑な条件ではスコープを確認します。","tags":["instanceof","pattern matching"]},
   "virtual-threads-basics":{"title":"仮想スレッドの基本","short":"多数の待機中心タスクを軽量に実行する","summary":"Java 21の仮想スレッドを使って並行処理します。","why":"仮想スレッドは多数のI/O待ちタスクを少ないOSスレッド上で扱いやすくし、スレッドごとに直線的なコードを書けます。","tips":"CPU計算を速くする仕組みではありません。共有状態の同期や資源数の上限は別に設計します。","tags":["virtual thread","concurrency"]},
   "map-merge-counter":{"title":"Mapで出現回数を数える","short":"mergeで初期値と加算をまとめる","summary":"Map.mergeでキーごとのカウンタを更新します。","why":"mergeはキーがない場合の初期値設定と、既存値がある場合の結合処理を一つの呼び出しで表せます。","tips":"単純な分類にはcomputeIfAbsent、数値の加算など既存値との結合にはmergeが読みやすいことがあります。","tags":["Map","merge"]},
   "string-repeat":{"title":"文字列を指定回数繰り返す","short":"String.repeatで反復文字列を作る","summary":"同じ文字列を必要な回数だけ連結します。","why":"String.repeatは手書きループやStringBuilderによる反復連結を簡潔に表現します。","tips":"回数が負なら例外になります。巨大な回数では生成される文字列の大きさにも注意します。","tags":["String","repeat"]},
