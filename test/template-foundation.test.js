@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { CONTENT_CATEGORIES } from '../src/content-loader.js';
 import { matchesArticle } from '../src/article-search.js';
 
-test('JavaAtlas loads the Java core corpus shard', () => {
-  assert.deepEqual(CONTENT_CATEGORIES, ['java-core.json']);
+test('JavaAtlas loads the Java content corpus shards', () => {
+  assert.deepEqual(CONTENT_CATEGORIES, ['java-core.json', 'java-expansion-001.json']);
 });
 
 test('article search remains reusable', () => {
