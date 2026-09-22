@@ -1,7 +1,7 @@
 [
   {"id":"random-generator-api-concept","type":"concept","since":17,"bad":null,"good":null,"code":"RandomGenerator rng = RandomGenerator.getDefault();","topics":["numbers","practical"],"related":["primitive-vs-reference","integer-division"]},
   {"id":"charset-decoder-concept","type":"concept","since":8,"bad":null,"good":null,"code":"CharsetDecoder decoder = StandardCharsets.UTF_8.newDecoder();","topics":["io","text"],"related":["io-exception","files-read-string"]},
-  {"id":"string-indent","type":"code","since":12,"bad":null,"good":null,"code":"String indented = text.indent(4);","topics":["strings","text"],"related":["string-lines","string-immutability"]},
+  {"id":"string-indent-method","type":"code","since":12,"bad":null,"good":null,"code":"String indented = text.indent(4);","topics":["strings","text"],"related":["string-lines","string-immutability"]},
   {"id":"string-transform","type":"code","since":12,"bad":null,"good":null,"code":"int length = text.transform(String::trim).length();","topics":["strings","practical"],"related":["method-references","string-immutability"]},
   {"id":"malformed-input-exception","type":"exception","since":8,"bad":"decoder.decode(ByteBuffer.wrap(invalidUtf8));","good":"// choose the correct charset or configure malformed-input handling","code":null,"topics":["exceptions","text"],"related":["charset-decoder-concept","io-exception"]},
   {"id":"unmappable-character-exception","type":"exception","since":8,"bad":"encoder.encode(CharBuffer.wrap(text)); // target charset cannot represent a character","good":"// use a charset that represents the text or configure unmappable-character handling","code":null,"topics":["exceptions","text"],"related":["charset-decoder-concept","io-exception"]},
