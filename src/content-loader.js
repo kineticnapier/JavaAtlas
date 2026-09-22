@@ -12,7 +12,8 @@ export const CONTENT_CATEGORIES = [
   'java-expansion-008.json',
   'java-expansion-009.json',
   'java-expansion-010.json',
-  'java-expansion-011.json'
+  'java-expansion-011.json',
+  'java-expansion-012.json'
 ];
 
 export async function loadLocalizedContent({ fetchJson, locale, fallbackLocale = 'ja' }) {
