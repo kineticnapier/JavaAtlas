@@ -1,6 +1,6 @@
 [
   {"id":"class-value-concept","type":"concept","since":8,"bad":null,"good":null,"code":"ClassValue<Metadata> cache = new ClassValue<>() { protected Metadata computeValue(Class<?> type) { return inspect(type); } };","topics":["oop","practical"],"related":["class-inheritance","shared-mutable-state"]},
-  {"id":"cleaner-concept","type":"concept","since":9,"bad":null,"good":null,"code":"Cleaner cleaner = Cleaner.create();","topics":["resources","practical"],"related":["try-with-resources","io-exception"]},
+  {"id":"cleaner-concept","type":"concept","since":9,"bad":null,"good":null,"code":"Cleaner cleaner = Cleaner.create();","topics":["io","practical"],"related":["try-with-resources","io-exception"]},
   {"id":"collections-rotate","type":"code","since":8,"bad":null,"good":null,"code":"Collections.rotate(list, 2);","topics":["collections","practical"],"related":["collections-frequency","list-basics"]},
   {"id":"arrays-compare","type":"code","since":9,"bad":null,"good":null,"code":"int order = Arrays.compare(left, right);","topics":["collections","practical"],"related":["list-basics","comparator-comparing-chaining"]},
   {"id":"illformed-locale-exception","type":"exception","since":8,"bad":"new Locale.Builder().setLanguageTag(\"en_US\").build();","good":"new Locale.Builder().setLanguageTag(\"en-US\").build();","code":null,"topics":["exceptions","text"],"related":["illegal-argument-exception","string-formatting"]},
