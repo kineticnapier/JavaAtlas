@@ -1,0 +1,12 @@
+[
+  {"id":"completable-future-concept","type":"concept","since":8,"bad":null,"good":null,"code":"CompletableFuture.supplyAsync(this::load).thenApply(this::parse);","topics":["concurrency","practical"],"related":["executor-service","lambda-expressions"]},
+  {"id":"primitive-streams-concept","type":"concept","since":8,"bad":null,"good":null,"code":"int total = IntStream.rangeClosed(1, 100).sum();","topics":["query","numbers"],"related":["stream-map-filter","stream-laziness"]},
+  {"id":"map-copy-of","type":"code","since":10,"bad":null,"good":null,"code":"Map<String, Integer> snapshot = Map.copyOf(source);","topics":["collections","practical"],"related":["list-basics","immutable-collections"]},
+  {"id":"stream-iterate-predicate","type":"code","since":9,"bad":null,"good":null,"code":"Stream.iterate(1, n -> n <= 100, n -> n * 2).forEach(System.out::println);","topics":["query","practical"],"related":["stream-laziness","lambda-expressions"]},
+  {"id":"completion-exception","type":"exception","since":8,"bad":"future.join(); // asynchronous stage failed","good":"try { future.join(); } catch (CompletionException e) { handle(e.getCause()); }","code":null,"topics":["exceptions","concurrency"],"related":["executor-service","rejected-execution-exception"]},
+  {"id":"closed-file-system-exception","type":"exception","since":8,"bad":"fs.close(); fs.getPath(\"data.txt\");","good":"// keep the file system open while its paths are in use","code":null,"topics":["exceptions","io"],"related":["io-exception","invalid-path-exception"]},
+  {"id":"var-compound-declaration-error","type":"compiler-error","since":10,"bad":"var x = 1, y = 2;","good":"var x = 1; var y = 2;","code":null,"topics":["syntax","practical"],"related":["var-local-inference","incompatible-types"]},
+  {"id":"lambda-var-mixed-parameters-error","type":"compiler-error","since":11,"bad":"(var x, y) -> x + y","good":"(var x, var y) -> x + y","code":null,"topics":["syntax","practical"],"related":["lambda-expressions","var-local-inference"]},
+  {"id":"unchecked-conversion-warning","type":"compiler-warning","since":8,"bad":"List<String> names = rawList;","good":"List<String> names = typedList;","code":null,"topics":["oop","practical"],"related":["unchecked-cast-warning","generics"]},
+  {"id":"arrays-as-list-primitive-array-trap","type":"logic","since":8,"bad":"Arrays.asList(new int[]{1, 2, 3}).size() // 1","good":"IntStream.of(1, 2, 3).boxed().toList()","code":null,"topics":["collections","practical"],"related":["list-basics","primitive-streams-concept"]}
+]
