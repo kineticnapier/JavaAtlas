@@ -19,8 +19,9 @@ test('JavaAtlas learning map covers a substantial curated path through the corpu
   const nodes = map.chapters.flatMap(chapter => chapter.nodes ?? []);
   const mainNodes = nodes.filter(node => (node.kind ?? 'main') === 'main');
   const nodeIds = nodes.map(node => node.id);
+  const minimumMappedNodes = Math.ceil(articleIds.size * 0.45);
 
-  assert.ok(nodes.length >= 80, `expected at least 80 mapped nodes, got ${nodes.length}`);
+  assert.ok(nodes.length >= minimumMappedNodes, `expected at least 45% of the corpus (${minimumMappedNodes} nodes) to be mapped, got ${nodes.length}`);
   assert.ok(mainNodes.length >= 50, `expected at least 50 main learning nodes, got ${mainNodes.length}`);
   assert.equal(new Set(nodeIds).size, nodeIds.length, 'learning map must not duplicate article nodes across chapters');
   assert.ok(nodes.every(node => articleIds.has(node.id)), 'every learning-map node must reference a real article');
