@@ -7,6 +7,6 @@
   {"id":"closed-file-system-exception","type":"exception","since":8,"bad":"fs.close(); fs.getPath(\"data.txt\");","good":"// keep the file system open while its paths are in use","code":null,"topics":["exceptions","io"],"related":["io-exception","invalid-path-exception"]},
   {"id":"var-compound-declaration-error","type":"compiler-error","since":10,"bad":"var x = 1, y = 2;","good":"var x = 1; var y = 2;","code":null,"topics":["syntax","practical"],"related":["var-local-inference","incompatible-types"]},
   {"id":"lambda-var-mixed-parameters-error","type":"compiler-error","since":11,"bad":"(var x, y) -> x + y","good":"(var x, var y) -> x + y","code":null,"topics":["syntax","practical"],"related":["lambda-expressions","var-local-inference"]},
-  {"id":"unchecked-conversion-warning","type":"compiler-warning","since":8,"bad":"List<String> names = rawList;","good":"List<String> names = typedList;","code":null,"topics":["oop","practical"],"related":["unchecked-cast-warning","generics"]},
+  {"id":"this-escape-warning","type":"compiler-warning","since":21,"bad":"class Base { Base() { overridable(); } void overridable() {} }","good":"// do not expose this from a constructor before subclass initialization finishes","code":null,"topics":["oop","practical"],"related":["class-inheritance","shared-mutable-state"]},
   {"id":"string-split-regex-dot-trap","type":"logic","since":8,"bad":"\"a.b\".split(\".\") // '.' is a regex wildcard","good":"\"a.b\".split(\"\\\\.\")","code":null,"topics":["syntax","practical"],"related":["string-immutability","string-lines"]}
 ]
