@@ -11,6 +11,7 @@
         {"id":"primitive-vs-reference","kind":"main","prerequisites":["main-method"]},
         {"id":"string-immutability","kind":"main","prerequisites":["primitive-vs-reference"]},
         {"id":"string-formatting","kind":"main","prerequisites":["string-immutability"]},
+        {"id":"string-repeat-count","kind":"main","prerequisites":["string-immutability"]},
         {"id":"cannot-find-symbol","kind":"support","attachedTo":"main-method"},
         {"id":"non-static-from-static","kind":"support","attachedTo":"static-members"},
         {"id":"integer-division","kind":"support","attachedTo":"primitive-vs-reference"},
@@ -33,6 +34,7 @@
         {"id":"wildcards","kind":"main","prerequisites":["generics"]},
         {"id":"equals-hashcode","kind":"main","prerequisites":["generics"]},
         {"id":"record-type","kind":"main","prerequisites":["equals-hashcode"]},
+        {"id":"record-compact-constructor","kind":"main","prerequisites":["record-type"]},
         {"id":"class-cast-exception","kind":"support","attachedTo":"generics"},
         {"id":"method-does-not-override","kind":"support","attachedTo":"class-inheritance"},
         {"id":"incompatible-types","kind":"support","attachedTo":"generics"},
@@ -52,6 +54,7 @@
         {"id":"set-basics","kind":"main","prerequisites":["list-basics"]},
         {"id":"map-basics","kind":"main","prerequisites":["list-basics"]},
         {"id":"hashmap-basics","kind":"main","prerequisites":["map-basics"]},
+        {"id":"map-compute-if-present","kind":"main","prerequisites":["map-basics"]},
         {"id":"list-of-immutable","kind":"main","prerequisites":["list-basics"]},
         {"id":"set-of-immutable","kind":"main","prerequisites":["set-basics"]},
         {"id":"map-of-immutable","kind":"main","prerequisites":["map-basics"]},
@@ -74,7 +77,8 @@
         {"id":"unreported-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
         {"id":"illegal-argument-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
         {"id":"illegal-state-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
-        {"id":"arithmetic-exception","kind":"support","attachedTo":"checked-vs-unchecked"}
+        {"id":"arithmetic-exception","kind":"support","attachedTo":"checked-vs-unchecked"},
+        {"id":"date-time-parse-exception","kind":"support","attachedTo":"checked-vs-unchecked"}
       ]
     },
     {
