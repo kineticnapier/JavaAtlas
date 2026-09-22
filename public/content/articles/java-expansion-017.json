@@ -1,5 +1,5 @@
 [
-  {"id":"structured-task-scope-concept","type":"concept","since":25,"status":"preview","bad":null,"good":null,"code":"try (var scope = StructuredTaskScope.open()) { /* fork related subtasks */ }","topics":["concurrency","practical"],"related":["virtual-thread-blocking-model","completion-exception-async"]},
+  {"id":"structured-task-scope-concept","type":"concept","since":25,"status":"preview","bad":null,"good":null,"code":"try (var scope = StructuredTaskScope.open()) { /* fork related subtasks */ }","topics":["concurrency","practical"],"related":["virtual-thread-blocking-model","completion-exception"]},
   {"id":"stream-gatherer-concept","type":"concept","since":24,"status":"stable","bad":null,"good":null,"code":"stream.gather(Gatherers.windowFixed(3));","topics":["collections","practical"],"related":["list-basics","collections-frequency"]},
   {"id":"map-copy-of-snapshot","type":"code","since":10,"bad":null,"good":null,"code":"Map<String, Integer> snapshot = Map.copyOf(source);","topics":["collections","practical"],"related":["list-basics","sequenced-collection-first-last"]},
   {"id":"string-indent-transform","type":"code","since":12,"bad":null,"good":null,"code":"String indented = text.indent(2); String result = text.transform(String::strip);","topics":["syntax","practical"],"related":["string-formatting","hex-format-bytes"]},
