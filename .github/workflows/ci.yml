@@ -14,15 +14,19 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
-      - name: Test corpus integrity
-        run: node --test test/java-content-50.test.js
-      - name: Test content batch contract
-        run: node --test test/java-content-150.test.js
-      - name: Test learning map
-        run: node --test test/java-learning-map.test.js
-      - name: Test template foundation
-        run: node --test test/template-foundation.test.js
-      - name: Test template genericity
-        run: node --test test/template-genericity.test.js
+      - name: Diagnose Java config
+        continue-on-error: true
+        run: node --test --test-name-pattern="config is Java-specific" test/java-content-50.test.js
+      - name: Diagnose corpus parity
+        continue-on-error: true
+        run: node --test --test-name-pattern="exactly 350" test/java-content-50.test.js
+      - name: Diagnose runtime localization
+        continue-on-error: true
+        run: node --test --test-name-pattern="localized at runtime" test/java-content-50.test.js
+      - name: Diagnose quest code
+        continue-on-error: true
+        run: node --test --test-name-pattern="inherit representative code" test/java-content-50.test.js
+      - name: Run tests
+        run: npm test
       - name: Build
         run: npm run build
