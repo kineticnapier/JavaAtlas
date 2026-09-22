@@ -4,7 +4,7 @@ import { CONTENT_CATEGORIES } from '../src/content-loader.js';
 import { matchesArticle } from '../src/article-search.js';
 
 test('JavaAtlas loads the Java content corpus shards', () => {
-  assert.deepEqual(CONTENT_CATEGORIES, ['java-core.json', 'java-expansion-001.json', 'java-expansion-002.json', 'java-expansion-003.json', 'java-expansion-004.json', 'java-expansion-005.json', 'java-expansion-006.json', 'java-expansion-007.json', 'java-expansion-008.json', 'java-expansion-009.json', 'java-expansion-010.json', 'java-expansion-011.json', 'java-expansion-012.json', 'java-expansion-013.json', 'java-expansion-014.json', 'java-expansion-015.json', 'java-expansion-016.json', 'java-expansion-017.json', 'java-expansion-018.json', 'java-expansion-019.json', 'java-expansion-020.json']);
+  assert.deepEqual(CONTENT_CATEGORIES, ['java-core.json', 'java-expansion-001.json', 'java-expansion-002.json', 'java-expansion-003.json', 'java-expansion-004.json', 'java-expansion-005.json', 'java-expansion-006.json', 'java-expansion-007.json', 'java-expansion-008.json', 'java-expansion-009.json', 'java-expansion-010.json', 'java-expansion-011.json', 'java-expansion-012.json', 'java-expansion-013.json', 'java-expansion-014.json', 'java-expansion-015.json', 'java-expansion-016.json', 'java-expansion-017.json', 'java-expansion-018.json', 'java-expansion-019.json', 'java-expansion-020.json', 'java-expansion-021.json']);
 });
 
 test('article search remains reusable', () => {
