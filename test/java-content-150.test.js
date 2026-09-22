@@ -7,12 +7,12 @@ async function readJson(path) {
   return JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
 }
 
-test('JavaAtlas next content batch brings the corpus to 220 articles', async () => {
-  assert.ok(CONTENT_CATEGORIES.includes('java-expansion-013.json'));
+test('JavaAtlas next content batch brings the corpus to 230 articles', async () => {
+  assert.ok(CONTENT_CATEGORIES.includes('java-expansion-014.json'));
   let count = 0;
   for (const file of CONTENT_CATEGORIES) {
     const articles = await readJson(`../public/content/articles/${file}`);
     count += articles.length;
   }
-  assert.equal(count, 220);
+  assert.equal(count, 230);
 });
