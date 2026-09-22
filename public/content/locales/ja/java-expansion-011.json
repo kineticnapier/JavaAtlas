@@ -1,0 +1,12 @@
+{
+  "try-with-resources-basics":{"title":"try-with-resources","short":"リソースを自動で閉じる","summary":"AutoCloseableなリソースはtry-with-resourcesで管理します。","why":"tryのヘッダーで宣言したリソースは、本体で例外が発生しても自動的にcloseされます。","tips":"ストリームやReader、Writerなどでは手書きのfinallyより優先して使います。","tags":["例外","入出力"]},
+  "optional-or-else-get":{"title":"Optionalの遅延フォールバック","short":"必要なときだけ代替値を作る","summary":"代替値の生成に処理が必要ならorElseGetを使います。","why":"orElseGetのSupplierはOptionalが空の場合だけ呼び出されます。","tips":"安価な定数ならorElse、処理や副作用を伴うならorElseGetを使い分けます。","tags":["Optional","関数型"]},
+  "list-copy-of":{"title":"変更不可なListのコピー","short":"要素を変更不可Listへコピーする","summary":"List.copyOfで変更不可のListを作ります。","why":"返されたListを変更させない意図をAPI上で明確にできます。","tips":"要素自体は深いコピーにならず、null要素も許可されません。","tags":["List","コレクション"]},
+  "files-read-string":{"title":"ファイルをStringとして読む","short":"小さなテキストをFiles.readStringで読む","summary":"文字コードを指定してPathの全文を読み込みます。","why":"全文がメモリに収まる場合、Readerのループを手書きせず簡潔に読めます。","tips":"巨大なファイルは全文読み込みではなく行単位などで処理します。","tags":["Files","入出力"]},
+  "unsupported-operation-unmodifiable-list":{"title":"変更不可Listの変更","short":"変更不可Listへの追加や削除は失敗する","summary":"変更不可なListに変更操作を行わないようにします。","why":"List.copyOfなどが返すListの変更メソッドはUnsupportedOperationExceptionを投げます。","tips":"変更が必要ならnew ArrayList<>(source)のように可変なコピーを作ります。","tags":["List","例外"]},
+  "integer-parse-overflow":{"title":"int範囲外の整数文字列","short":"数字でもintに収まらなければ変換できない","summary":"入力値が収まる数値型を選びます。","why":"Integer.parseIntは数字だけの文字列でも値がintの範囲外ならNumberFormatExceptionを投げます。","tips":"範囲が大きい入力にはlongやBigIntegerを検討します。","tags":["数値","例外"]},
+  "switch-expression-missing-yield":{"title":"switch式のyield不足","short":"ブロック形式の分岐は値を返す必要がある","summary":"switch式のブロックから結果を返すときはyieldを使います。","why":"switch式の矢印の後をブロックにした場合、単なる式文ではswitch式の値を生成できません。","tips":"途中の文が不要ならcase X -> valueの形にすると簡潔です。","tags":["switch","コンパイルエラー"]},
+  "record-cannot-extend-class":{"title":"recordはクラスを継承できない","short":"recordの親クラスは固定されている","summary":"recordで多態性が必要ならinterfaceを実装します。","why":"すべてのrecordは暗黙にjava.lang.Recordを継承するため、別のクラスをextendsできません。","tips":"実装継承が必要な設計なら通常のclassが適切か検討します。","tags":["record","コンパイルエラー"]},
+  "rawtypes-list-warning":{"title":"raw型Listの警告","short":"ジェネリック型引数を省略しない","summary":"コレクションには型引数を付けて要素型をコンパイラに検査させます。","why":"raw型のListは型情報を失い、不正な要素の混入をコンパイル時に防げなくなります。","tips":"古いraw型APIとの互換が必要な場合を除きList<T>を使います。","tags":["ジェネリクス","警告"]},
+  "optional-or-else-eager":{"title":"Optional.orElseの先行評価","short":"値が存在しても代替式は評価される","summary":"代替値を必要な場合だけ作るならorElseGetを使います。","why":"Javaではメソッド呼び出し前に引数を評価するため、orElseに渡した式はOptionalに値があっても実行されます。","tips":"代替処理が重い、状態を変える、入出力やログを行う場合は特に注意します。","tags":["Optional","ロジック"]}
+}
