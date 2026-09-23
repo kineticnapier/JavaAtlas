@@ -1,0 +1,3 @@
+{
+  "provider-not-found-exception":{"title":"File system provider not found","short":"Check that the URI scheme has an available provider","summary":"ProviderNotFoundException is thrown when no installed FileSystemProvider supports the requested scheme.","why":"FileSystems delegates URI handling to a provider for that scheme, so it cannot create the file system when no matching implementation is available.","tips":"Use a supported scheme or verify that the required FileSystemProvider is available at runtime.","tags":["file system","exceptions"]}
+}
