@@ -1,0 +1,12 @@
+[
+  {"id":"enumset-basics","type":"concept","since":8,"bad":null,"good":null,"code":"Set<Day> weekend = EnumSet.of(Day.SATURDAY, Day.SUNDAY);","topics":["collections","oop"],"related":["enum-type","set-basics"]},
+  {"id":"method-overloading-basics","type":"concept","since":8,"bad":null,"good":null,"code":"void print(int n) {}\nvoid print(String s) {}","topics":["oop","syntax"],"related":["ambiguous-method-call","ambiguous-overload-null"]},
+  {"id":"map-get-or-default","type":"code","since":8,"bad":null,"good":null,"code":"int count = counts.getOrDefault(word, 0);","topics":["collections"],"related":["map-basics","hashmap-null-ambiguity"]},
+  {"id":"string-indent","type":"code","since":12,"bad":null,"good":null,"code":"String indented = text.indent(4);","topics":["strings"],"related":["string-strip","string-formatting"]},
+  {"id":"class-not-found-exception","type":"exception","since":8,"bad":"Class.forName(\"com.example.Missing\");","good":"Class.forName(\"java.lang.String\");","code":null,"topics":["exceptions","oop"],"related":["cannot-find-symbol","illegal-state-exception"]},
+  {"id":"file-not-found-exception","type":"exception","since":8,"bad":"new FileInputStream(\"missing.txt\");","good":"if (Files.exists(path)) try (var in = new FileInputStream(path.toFile())) { }","code":null,"topics":["exceptions","io"],"related":["io-exception","files-read-text-utf8"]},
+  {"id":"cyclic-inheritance","type":"compiler-error","since":8,"bad":"class Node extends Node {}","good":"class Node {}","code":null,"topics":["oop","syntax"],"related":["class-inheritance","abstract-method-not-implemented"]},
+  {"id":"break-outside-loop-switch","type":"compiler-error","since":8,"bad":"void run() { break; }","good":"void run() { while (ready()) { break; } }","code":null,"topics":["syntax"],"related":["unreachable-statement","duplicate-case-label"]},
+  {"id":"unchecked-conversion-warning","type":"compiler-warning","since":8,"bad":"List<String> names = new ArrayList();","good":"List<String> names = new ArrayList<>();","code":null,"topics":["oop","collections"],"related":["rawtypes-warning","unchecked-method-invocation-warning"]},
+  {"id":"array-equals-reference","type":"logic","since":8,"bad":"if (a.equals(b)) { }","good":"if (Arrays.equals(a, b)) { }","code":null,"topics":["collections","oop"],"related":["stringbuilder-equals-identity","equals-hashcode"]}
+]

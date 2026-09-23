@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import { CONTENT_CATEGORIES } from '../src/content-loader.js';
 import { matchesArticle } from '../src/article-search.js';
 
-test('JavaAtlas loads the Java core corpus shard', () => {
-  assert.deepEqual(CONTENT_CATEGORIES, ['java-core.json']);
+test('JavaAtlas loads an extensible Java content corpus', () => {
+  assert.ok(CONTENT_CATEGORIES.includes('java-core.json'));
+  assert.ok(CONTENT_CATEGORIES.length >= 1);
+  assert.equal(new Set(CONTENT_CATEGORIES).size, CONTENT_CATEGORIES.length, 'content shard names must be unique');
+  assert.ok(CONTENT_CATEGORIES.every(file => file.endsWith('.json')), 'content shards must be JSON files');
 });
 
 test('article search remains reusable', () => {

@@ -1,0 +1,3 @@
+{
+  "closed-selector-exception":{"title":"Operating on a closed Selector","short":"Do not select with a Selector after closing it","summary":"ClosedSelectorException is thrown when an operation that requires an open Selector is attempted after the Selector has been closed.","why":"A closed Selector can no longer perform selection or registration work and cannot be reopened for reuse.","tips":"Give the Selector a clear lifetime and open a new Selector if selection is needed after the old one is closed.","tags":["NIO","exceptions"]}
+}

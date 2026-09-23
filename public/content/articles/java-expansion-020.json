@@ -1,0 +1,12 @@
+[
+  {"id":"stamped-lock-concept","type":"concept","since":8,"bad":null,"good":null,"code":"long stamp = lock.tryOptimisticRead();","topics":["concurrency","practical"],"related":["executor-service","shared-mutable-state"]},
+  {"id":"primitive-streams-concept","type":"concept","since":8,"bad":null,"good":null,"code":"int total = IntStream.rangeClosed(1, 100).sum();","topics":["query","numbers"],"related":["stream-map-filter","stream-laziness"]},
+  {"id":"map-entry-copy-of","type":"code","since":10,"bad":null,"good":null,"code":"Map.Entry<String, Integer> snapshot = Map.Entry.copyOf(entry);","topics":["collections","practical"],"related":["map-basics","map-of-immutable"]},
+  {"id":"stream-iterate-predicate","type":"code","since":9,"bad":null,"good":null,"code":"Stream.iterate(1, n -> n <= 100, n -> n * 2).forEach(System.out::println);","topics":["query","practical"],"related":["stream-laziness","lambda-expressions"]},
+  {"id":"file-system-not-found-exception","type":"exception","since":8,"bad":"FileSystems.getFileSystem(uri); // no provider-created file system for URI","good":"// create or obtain the file system before looking it up","code":null,"topics":["exceptions","io"],"related":["io-exception","path-basics"]},
+  {"id":"closed-file-system-exception","type":"exception","since":8,"bad":"fs.close(); fs.getPath(\"data.txt\");","good":"// keep the file system open while its paths are in use","code":null,"topics":["exceptions","io"],"related":["io-exception","invalid-path-exception"]},
+  {"id":"var-compound-declaration-error","type":"compiler-error","since":10,"bad":"var x = 1, y = 2;","good":"var x = 1; var y = 2;","code":null,"topics":["syntax","practical"],"related":["var-local-inference","incompatible-types"]},
+  {"id":"lambda-var-mixed-parameters-error","type":"compiler-error","since":11,"bad":"(var x, y) -> x + y","good":"(var x, var y) -> x + y","code":null,"topics":["syntax","practical"],"related":["lambda-expressions","var-local-inference"]},
+  {"id":"this-escape-warning","type":"compiler-warning","since":21,"bad":"class Base { Base() { overridable(); } void overridable() {} }","good":"// do not expose this from a constructor before subclass initialization finishes","code":null,"topics":["oop","practical"],"related":["class-inheritance","shared-mutable-state"]},
+  {"id":"string-split-regex-dot-trap","type":"logic","since":8,"bad":"\"a.b\".split(\".\") // '.' is a regex wildcard","good":"\"a.b\".split(\"\\\\.\")","code":null,"topics":["syntax","practical"],"related":["string-immutability","string-lines"]}
+]

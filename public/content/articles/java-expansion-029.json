@@ -1,0 +1,3 @@
+[
+  {"id":"copyonwritearraylist-concept","type":"concept","since":8,"status":"stable","bad":null,"good":null,"code":"var listeners = new CopyOnWriteArrayList<Runnable>();","topics":["concurrency","collections"],"related":["shared-mutable-state","list-basics"]}
+]

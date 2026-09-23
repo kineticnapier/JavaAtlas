@@ -1,0 +1,785 @@
+[
+  {
+    "id": "class-inheritance",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "class Dog extends Animal { @Override void speak() {} }",
+    "topics": [
+      "oop"
+    ],
+    "related": [
+      "interface-default-method",
+      "method-does-not-override"
+    ]
+  },
+  {
+    "id": "interface-default-method",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "interface Named { default String name() { return \"?\"; } }",
+    "topics": [
+      "oop"
+    ],
+    "related": [
+      "class-inheritance",
+      "method-references"
+    ]
+  },
+  {
+    "id": "enum-type",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "enum Status { NEW, RUNNING, DONE }",
+    "topics": [
+      "oop",
+      "syntax"
+    ],
+    "related": [
+      "switch-expression",
+      "switch-not-exhaustive"
+    ]
+  },
+  {
+    "id": "annotations-basics",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "@Override\npublic String toString() { return \"x\"; }",
+    "topics": [
+      "oop",
+      "practical"
+    ],
+    "related": [
+      "method-does-not-override",
+      "deprecation-warning"
+    ]
+  },
+  {
+    "id": "method-references",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "names.stream().map(String::trim).toList();",
+    "topics": [
+      "query",
+      "syntax"
+    ],
+    "related": [
+      "lambda-expressions",
+      "stream-map-filter"
+    ]
+  },
+  {
+    "id": "lambda-expressions",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "names.removeIf(name -> name.isBlank());",
+    "topics": [
+      "query",
+      "syntax"
+    ],
+    "related": [
+      "method-references",
+      "lambda-effectively-final"
+    ]
+  },
+  {
+    "id": "try-with-resources",
+    "type": "concept",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "try (var in = Files.newInputStream(path)) { /* use in */ }",
+    "topics": [
+      "io",
+      "exceptions"
+    ],
+    "related": [
+      "io-exception",
+      "files-lines"
+    ]
+  },
+  {
+    "id": "module-system",
+    "type": "concept",
+    "since": 9,
+    "bad": null,
+    "good": null,
+    "code": "module com.example.app { requires java.net.http; }",
+    "topics": [
+      "modules",
+      "practical"
+    ],
+    "related": [
+      "httpclient-get",
+      "cannot-find-symbol"
+    ]
+  },
+  {
+    "id": "record-patterns",
+    "type": "concept",
+    "since": 21,
+    "bad": null,
+    "good": null,
+    "code": "if (value instanceof Point(int x, int y)) System.out.println(x + y);",
+    "topics": [
+      "oop",
+      "syntax"
+    ],
+    "related": [
+      "record-type",
+      "pattern-matching-instanceof"
+    ]
+  },
+  {
+    "id": "sequenced-collections",
+    "type": "concept",
+    "since": 21,
+    "bad": null,
+    "good": null,
+    "code": "var first = list.getFirst();\nvar reversed = list.reversed();",
+    "topics": [
+      "collections"
+    ],
+    "related": [
+      "list-basics",
+      "list-of-immutable"
+    ]
+  },
+  {
+    "id": "list-of-immutable",
+    "type": "code",
+    "since": 9,
+    "bad": null,
+    "good": null,
+    "code": "List<String> names = List.of(\"Ada\", \"Linus\");",
+    "topics": [
+      "collections"
+    ],
+    "related": [
+      "list-basics",
+      "unsupported-operation-exception"
+    ]
+  },
+  {
+    "id": "map-of-immutable",
+    "type": "code",
+    "since": 9,
+    "bad": null,
+    "good": null,
+    "code": "Map<String, Integer> scores = Map.of(\"A\", 10, \"B\", 20);",
+    "topics": [
+      "collections"
+    ],
+    "related": [
+      "map-basics",
+      "hashmap-null-ambiguity"
+    ]
+  },
+  {
+    "id": "set-of-immutable",
+    "type": "code",
+    "since": 9,
+    "bad": null,
+    "good": null,
+    "code": "Set<String> tags = Set.of(\"java\", \"jvm\");",
+    "topics": [
+      "collections"
+    ],
+    "related": [
+      "set-basics",
+      "unsupported-operation-exception"
+    ]
+  },
+  {
+    "id": "collectors-groupingby",
+    "type": "code",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "var byLength = words.stream().collect(Collectors.groupingBy(String::length));",
+    "topics": [
+      "query",
+      "collections"
+    ],
+    "related": [
+      "stream-map-filter",
+      "collectors-joining"
+    ]
+  },
+  {
+    "id": "collectors-joining",
+    "type": "code",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "String csv = names.stream().collect(Collectors.joining(\", \"));",
+    "topics": [
+      "query",
+      "strings"
+    ],
+    "related": [
+      "string-formatting",
+      "collectors-groupingby"
+    ]
+  },
+  {
+    "id": "files-lines",
+    "type": "code",
+    "since": 8,
+    "bad": null,
+    "good": null,
+    "code": "try (var lines = Files.lines(path)) { lines.forEach(System.out::println); }",
+    "topics": [
+      "io",
+      "query"
+    ],
+    "related": [
+      "try-with-resources",
+      "files-read-string"
+    ]
+  },
+  {
+    "id": "files-write-string",
+    "type": "code",
+    "since": 11,
+    "bad": null,
+    "good": null,
+    "code": "Files.writeString(path, text, StandardCharsets.UTF_8);",
+    "topics": [
+      "io",
+      "text"
+    ],
+    "related": [
+      "files-read-string",
+      "file-already-exists-exception"
+    ]
+  },
+  {
+    "id": "string-is-blank",
+    "type": "code",
+    "since": 11,
+    "bad": null,
+    "good": null,
+    "code": "if (input.isBlank()) return;",
+    "topics": [
+      "strings",
+      "text"
+    ],
+    "related": [
+      "string-lines",
+      "string-immutability"
+    ]
+  },
+  {
+    "id": "string-lines",
+    "type": "code",
+    "since": 11,
+    "bad": null,
+    "good": null,
+    "code": "text.lines().filter(s -> !s.isBlank()).forEach(System.out::println);",
+    "topics": [
+      "strings",
+      "query"
+    ],
+    "related": [
+      "string-is-blank",
+      "stream-map-filter"
+    ]
+  },
+  {
+    "id": "completablefuture-timeout",
+    "type": "code",
+    "since": 9,
+    "bad": null,
+    "good": null,
+    "code": "future.orTimeout(2, TimeUnit.SECONDS);",
+    "topics": [
+      "concurrency"
+    ],
+    "related": [
+      "completable-future",
+      "timeout-exception"
+    ]
+  },
+  {
+    "id": "illegal-argument-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "if (count < 0) throw new IllegalArgumentException(\"count\");",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "practical"
+    ],
+    "related": [
+      "illegal-state-exception",
+      "number-format-exception"
+    ]
+  },
+  {
+    "id": "illegal-state-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "if (!started) throw new IllegalStateException(\"not started\");",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "practical"
+    ],
+    "related": [
+      "illegal-argument-exception",
+      "optional-get-without-check"
+    ]
+  },
+  {
+    "id": "no-such-element-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "Optional.empty().get();",
+    "good": "value.orElseThrow();",
+    "code": null,
+    "topics": [
+      "exceptions",
+      "null"
+    ],
+    "related": [
+      "optional-get-without-check",
+      "optional"
+    ]
+  },
+  {
+    "id": "arithmetic-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "int x = 10 / 0;",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "numbers"
+    ],
+    "related": [
+      "integer-division",
+      "illegal-argument-exception"
+    ]
+  },
+  {
+    "id": "unsupported-operation-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "List.of(\"a\").add(\"b\");",
+    "good": "var list = new ArrayList<>(List.of(\"a\"));\nlist.add(\"b\");",
+    "code": null,
+    "topics": [
+      "exceptions",
+      "collections"
+    ],
+    "related": [
+      "list-of-immutable",
+      "mutable-list-from-arrays-aslist"
+    ]
+  },
+  {
+    "id": "completion-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "future.join(); // wraps async failure in CompletionException",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "concurrency"
+    ],
+    "related": [
+      "completable-future",
+      "completablefuture-timeout"
+    ]
+  },
+  {
+    "id": "timeout-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "future.get(1, TimeUnit.MILLISECONDS);",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "concurrency"
+    ],
+    "related": [
+      "completablefuture-timeout",
+      "executor-service"
+    ]
+  },
+  {
+    "id": "file-already-exists-exception",
+    "type": "exception",
+    "since": 8,
+    "bad": "Files.createFile(path); // path already exists",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "io"
+    ],
+    "related": [
+      "files-write-string",
+      "io-exception"
+    ]
+  },
+  {
+    "id": "missing-return-statement",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "int sign(int x) { if (x > 0) return 1; }",
+    "good": "int sign(int x) { return x > 0 ? 1 : 0; }",
+    "code": null,
+    "topics": [
+      "syntax"
+    ],
+    "related": [
+      "unreachable-statement",
+      "switch-not-exhaustive"
+    ]
+  },
+  {
+    "id": "method-does-not-override",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "@Override\npublic String tostring() { return \"x\"; }",
+    "good": "@Override\npublic String toString() { return \"x\"; }",
+    "code": null,
+    "topics": [
+      "oop"
+    ],
+    "related": [
+      "annotations-basics",
+      "class-inheritance"
+    ]
+  },
+  {
+    "id": "ambiguous-method-call",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "void f(String x) {}\nvoid f(Integer x) {}\nf(null);",
+    "good": null,
+    "code": null,
+    "topics": [
+      "oop",
+      "syntax"
+    ],
+    "related": [
+      "incompatible-types",
+      "generic-bound-mismatch"
+    ]
+  },
+  {
+    "id": "generic-bound-mismatch",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "static <T extends Number> void f(T x) {}\nf(\"text\");",
+    "good": "f(42);",
+    "code": null,
+    "topics": [
+      "oop",
+      "collections"
+    ],
+    "related": [
+      "generics",
+      "wildcards"
+    ]
+  },
+  {
+    "id": "duplicate-local-variable",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "int count = 1;\nint count = 2;",
+    "good": null,
+    "code": null,
+    "topics": [
+      "syntax"
+    ],
+    "related": [
+      "cannot-find-symbol",
+      "variable-might-not-have-been-initialized"
+    ]
+  },
+  {
+    "id": "unreachable-statement",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "return;\nSystem.out.println(\"never\");",
+    "good": null,
+    "code": null,
+    "topics": [
+      "syntax"
+    ],
+    "related": [
+      "missing-return-statement",
+      "switch-expression"
+    ]
+  },
+  {
+    "id": "variable-might-not-have-been-initialized",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "int x;\nif (ready) x = 1;\nSystem.out.println(x);",
+    "good": null,
+    "code": null,
+    "topics": [
+      "syntax"
+    ],
+    "related": [
+      "duplicate-local-variable",
+      "incompatible-types"
+    ]
+  },
+  {
+    "id": "private-access-error",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "other.secret; // secret has private access",
+    "good": null,
+    "code": null,
+    "topics": [
+      "oop"
+    ],
+    "related": [
+      "class-inheritance",
+      "cannot-find-symbol"
+    ]
+  },
+  {
+    "id": "final-variable-assignment",
+    "type": "compiler-error",
+    "since": 8,
+    "bad": "final int limit = 10;\nlimit = 20;",
+    "good": null,
+    "code": null,
+    "topics": [
+      "syntax",
+      "oop"
+    ],
+    "related": [
+      "lambda-effectively-final",
+      "variable-might-not-have-been-initialized"
+    ]
+  },
+  {
+    "id": "switch-not-exhaustive",
+    "type": "compiler-error",
+    "since": 21,
+    "bad": "return switch (shape) { case Circle c -> 1; };",
+    "good": "return switch (shape) { case Circle c -> 1; case Rectangle r -> 2; };",
+    "code": null,
+    "topics": [
+      "syntax",
+      "oop"
+    ],
+    "related": [
+      "sealed-classes",
+      "record-patterns"
+    ]
+  },
+  {
+    "id": "serial-warning",
+    "type": "compiler-warning",
+    "since": 8,
+    "bad": "class AppException extends Exception { } // -Xlint:serial",
+    "good": null,
+    "code": null,
+    "topics": [
+      "exceptions",
+      "practical"
+    ],
+    "related": [
+      "deprecation-warning",
+      "io-exception"
+    ]
+  },
+  {
+    "id": "varargs-heap-pollution-warning",
+    "type": "compiler-warning",
+    "since": 8,
+    "bad": "static void add(List<String>... lists) { }",
+    "good": null,
+    "code": null,
+    "topics": [
+      "oop",
+      "collections"
+    ],
+    "related": [
+      "unchecked-cast-warning",
+      "generics"
+    ]
+  },
+  {
+    "id": "removal-warning",
+    "type": "compiler-warning",
+    "since": 9,
+    "bad": "@Deprecated(forRemoval = true)\nvoid oldApi() {}",
+    "good": null,
+    "code": null,
+    "topics": [
+      "practical"
+    ],
+    "related": [
+      "deprecation-warning",
+      "annotations-basics"
+    ]
+  },
+  {
+    "id": "preview-feature-warning",
+    "type": "compiler-warning",
+    "since": 12,
+    "bad": "// compile preview syntax without --enable-preview",
+    "good": null,
+    "code": null,
+    "topics": [
+      "syntax",
+      "practical"
+    ],
+    "related": [
+      "switch-expression",
+      "record-patterns"
+    ]
+  },
+  {
+    "id": "fallthrough-warning",
+    "type": "compiler-warning",
+    "since": 8,
+    "bad": "switch (n) { case 1: work(); case 2: more(); }",
+    "good": "switch (n) { case 1: work(); break; case 2: more(); }",
+    "code": null,
+    "topics": [
+      "syntax"
+    ],
+    "related": [
+      "switch-expression",
+      "switch-not-exhaustive"
+    ]
+  },
+  {
+    "id": "autounboxing-null",
+    "type": "logic",
+    "since": 8,
+    "bad": "Integer value = null;\nint n = value;",
+    "good": "int n = value != null ? value : 0;",
+    "code": null,
+    "topics": [
+      "null",
+      "numbers"
+    ],
+    "related": [
+      "null-pointer-exception",
+      "primitive-vs-reference"
+    ]
+  },
+  {
+    "id": "bigdecimal-equals-scale",
+    "type": "logic",
+    "since": 8,
+    "bad": "new BigDecimal(\"1.0\").equals(new BigDecimal(\"1.00\"));",
+    "good": "a.compareTo(b) == 0",
+    "code": null,
+    "topics": [
+      "numbers"
+    ],
+    "related": [
+      "integer-division",
+      "string-equals-not-reference"
+    ]
+  },
+  {
+    "id": "hashmap-null-ambiguity",
+    "type": "logic",
+    "since": 8,
+    "bad": "if (map.get(key) == null) { /* absent or mapped to null? */ }",
+    "good": "if (!map.containsKey(key)) { /* absent */ }",
+    "code": null,
+    "topics": [
+      "collections",
+      "null"
+    ],
+    "related": [
+      "map-basics",
+      "mutable-hashmap-key"
+    ]
+  },
+  {
+    "id": "parallel-stream-side-effects",
+    "type": "logic",
+    "since": 8,
+    "bad": "var out = new ArrayList<String>();\nitems.parallelStream().forEach(out::add);",
+    "good": "var out = items.parallelStream().map(Object::toString).toList();",
+    "code": null,
+    "topics": [
+      "query",
+      "concurrency"
+    ],
+    "related": [
+      "shared-mutable-state",
+      "stream-laziness"
+    ]
+  },
+  {
+    "id": "or-else-eager",
+    "type": "logic",
+    "since": 8,
+    "bad": "value.orElse(expensiveFallback());",
+    "good": "value.orElseGet(this::expensiveFallback);",
+    "code": null,
+    "topics": [
+      "null",
+      "practical"
+    ],
+    "related": [
+      "optional",
+      "optional-get-without-check"
+    ]
+  },
+  {
+    "id": "mutable-list-from-arrays-aslist",
+    "type": "logic",
+    "since": 8,
+    "bad": "var list = Arrays.asList(\"a\", \"b\");\nlist.add(\"c\");",
+    "good": "var list = new ArrayList<>(Arrays.asList(\"a\", \"b\"));\nlist.add(\"c\");",
+    "code": null,
+    "topics": [
+      "collections"
+    ],
+    "related": [
+      "list-basics",
+      "unsupported-operation-exception"
+    ]
+  },
+  {
+    "id": "locale-sensitive-case",
+    "type": "logic",
+    "since": 8,
+    "bad": "String key = input.toLowerCase();",
+    "good": "String key = input.toLowerCase(Locale.ROOT);",
+    "code": null,
+    "topics": [
+      "strings",
+      "practical"
+    ],
+    "related": [
+      "string-immutability",
+      "string-formatting"
+    ]
+  }
+]

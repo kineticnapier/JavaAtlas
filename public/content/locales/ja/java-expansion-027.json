@@ -1,0 +1,3 @@
+{
+  "stackwalker-concept":{"title":"StackWalkerでスタックフレームを調べる","short":"標準APIでスタックフレームを走査する","summary":"StackWalkerは現在のスレッドのスタックフレームを遅延的かつ設定可能な形で参照できます。","why":"必要な情報だけを調べる場合に、スタックトレース全体を先に配列化せずに済みます。","tips":"診断に必要なStackWalkerのオプションだけを指定します。","tags":["StackWalker","実行時"]}
+}

@@ -1,0 +1,3 @@
+[
+  {"id":"stackwalker-concept","type":"concept","since":9,"status":"stable","bad":null,"good":null,"code":"StackWalker.getInstance().forEach(frame -> System.out.println(frame.getMethodName()));","topics":["runtime","practical"],"related":["classforname-classnotfound","method-references"]}
+]

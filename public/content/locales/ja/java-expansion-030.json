@@ -1,0 +1,3 @@
+{
+  "closed-selector-exception":{"title":"閉じたSelectorの操作","short":"Selectorはclose後に選択操作しない","summary":"ClosedSelectorExceptionは、すでに閉じられたSelectorに対して選択や登録に関わる操作を行うと発生します。","why":"close後のSelectorは選択処理に利用できず、その状態を復元して再利用することもできません。","tips":"Selectorの寿命を明確にし、閉じた後に必要なら新しいSelectorをopenします。","tags":["NIO","例外"]}
+}

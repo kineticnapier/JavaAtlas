@@ -1,0 +1,3 @@
+{
+  "copyonwritearraylist-concept":{"title":"CopyOnWriteArrayList","short":"Use a concurrent list for read-heavy workloads","summary":"CopyOnWriteArrayList copies its backing array on updates so readers can iterate over stable snapshots.","why":"It can reduce explicit locking for shared lists that are read often and changed rarely.","tips":"Each mutation copies the array, so avoid it for write-heavy workloads.","tags":["concurrency","collections"]}
+}

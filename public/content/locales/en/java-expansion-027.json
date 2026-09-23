@@ -1,0 +1,3 @@
+{
+  "stackwalker-concept":{"title":"Inspect stack frames with StackWalker","short":"Traverse stack frames through the standard API","summary":"StackWalker provides lazy, configurable access to the current thread's stack frames.","why":"It avoids eagerly materializing an entire stack trace when only selected frame information is needed.","tips":"Request only the StackWalker options required by the diagnostic task.","tags":["StackWalker","runtime"]}
+}

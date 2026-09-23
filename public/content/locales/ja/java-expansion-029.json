@@ -1,0 +1,3 @@
+{
+  "copyonwritearraylist-concept":{"title":"CopyOnWriteArrayList","short":"読み取り中心の並行リストを扱う","summary":"CopyOnWriteArrayListは更新時に内部配列をコピーし、反復中の読み取りを安定させる並行コレクションです。","why":"読み取りが多く更新が少ない共有リストでは、明示的なロックを減らせる場合があります。","tips":"更新のたびにコピーが発生するため、書き込み頻度が高い用途には向きません。","tags":["並行処理","コレクション"]}
+}
