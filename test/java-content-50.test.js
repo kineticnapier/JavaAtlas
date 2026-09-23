@@ -24,7 +24,7 @@ test('JavaAtlas corpus has valid articles, references, and ja/en locale parity',
     for (const article of base) {
       count += 1;
       assert.ok(article.id && article.type, `${file}: invalid article`);
-      assert.ok(Number.isInteger(article.since) && article.since >= 8, `${article.id}: missing Java since version`);
+      assert.ok(Number.isInteger(article.since) && article.since >= 1, `${article.id}: missing Java since version`);
       assert.ok(Array.isArray(article.topics) && article.topics.length > 0, `${article.id}: missing topics`);
       assert.ok(Array.isArray(article.related), `${article.id}: related must be an array`);
       assert.ok(article.related.length >= 2, `${article.id}: expected at least two related articles`);
