@@ -1,3 +1,3 @@
 {
-  "provider-not-found-exception":{"title":"ファイルシステムプロバイダが見つからない","short":"URI方式に対応するプロバイダを確認する","summary":"ProviderNotFoundExceptionは、要求した方式のFileSystemProviderが利用できない場合に発生します。","why":"FileSystemsはURIの方式に対応するプロバイダを探して処理を委譲するため、対応実装がなければファイルシステムを作成できません。","tips":"標準で対応する方式を使うか、必要なFileSystemProviderが実行時に利用可能か確認します。","tags":["ファイルシステム","例外"]}
+  "closed-selector-exception":{"title":"閉じたSelectorの操作","short":"Selectorはclose後に選択操作しない","summary":"ClosedSelectorExceptionは、すでに閉じられたSelectorに対して選択や登録に関わる操作を行うと発生します。","why":"close後のSelectorは選択処理に利用できず、その状態を復元して再利用することもできません。","tips":"Selectorの寿命を明確にし、閉じた後に必要なら新しいSelectorをopenします。","tags":["NIO","例外"]}
 }
