@@ -1,3 +1,3 @@
 [
-  {"id":"provider-not-found-exception","type":"exception","since":8,"status":"stable","bad":"FileSystems.newFileSystem(URI.create(\"unknown:/data\"), Map.of());","good":"FileSystems.newFileSystem(URI.create(\"jar:file:/app/data.zip\"), Map.of());","code":null,"topics":["exceptions","io"],"related":["file-system-not-found-exception","invalid-path-exception"]}
+  {"id":"closed-selector-exception","type":"exception","since":8,"status":"stable","bad":"selector.close(); selector.select();","good":"try (Selector selector = Selector.open()) { selector.select(); }","code":null,"topics":["exceptions","io"],"related":["io-exception","illegal-state-exception"]}
 ]
