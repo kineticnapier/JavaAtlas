@@ -1,5 +1,5 @@
 [
-  {"id":"virtual-threads-concept-038","type":"concept","since":21,"status":"stable","bad":null,"good":null,"code":"Thread.startVirtualThread(() -> handleRequest());","topics":["concurrency"],"related":["thread-basics","executor-service"]},
+  {"id":"virtual-threads-concept-038","type":"concept","since":21,"status":"stable","bad":null,"good":null,"code":"Thread.startVirtualThread(() -> handleRequest());","topics":["concurrency"],"related":["completable-future","executor-service"]},
   {"id":"pattern-switch-concept-038","type":"concept","since":21,"status":"stable","bad":null,"good":null,"code":"String text = switch (value) { case Integer i -> \"int \" + i; case String s -> s; default -> \"other\"; };","topics":["control-flow","oop"],"related":["record-pattern-concept-037","class-inheritance"]},
   {"id":"files-mismatch-code-038","type":"code","since":12,"status":"stable","bad":null,"good":null,"code":"long firstDifference = Files.mismatch(left, right);","topics":["io"],"related":["io-exception","try-with-resources"]},
   {"id":"zone-rules-exception-038","type":"exception","since":8,"status":"stable","bad":"ZoneId.of(\"Not/A_Real_Zone\");","good":"ZoneId zone = ZoneId.of(\"Asia/Tokyo\");","code":null,"topics":["exceptions","date-time"],"related":["date-time-api","illegal-argument-exception"]},
