@@ -1,5 +1,5 @@
 [
-  {"id":"classvalue-concept","type":"concept","since":8,"status":"stable","bad":null,"good":null,"code":"ClassValue<Metadata> cache = new ClassValue<>() { protected Metadata computeValue(Class<?> type) { return inspect(type); } };","topics":["runtime","oop"],"related":["class-value-concept","classforname-classnotfound"]},
+  {"id":"stackwalker-concept","type":"concept","since":9,"status":"stable","bad":null,"good":null,"code":"StackWalker.getInstance().forEach(frame -> System.out.println(frame.getMethodName()));","topics":["runtime","practical"],"related":["classforname-classnotfound","method-references"]},
   {"id":"threadlocal-concept","type":"concept","since":8,"status":"stable","bad":null,"good":null,"code":"ThreadLocal<Context> current = ThreadLocal.withInitial(Context::new);","topics":["concurrency","runtime"],"related":["scoped-value-concept","shared-mutable-state"]},
   {"id":"files-mismatch","type":"code","since":12,"status":"stable","bad":null,"good":null,"code":"long firstDifference = Files.mismatch(left, right);","topics":["io","practical"],"related":["files-read-string","arrays-mismatch"]},
   {"id":"collections-ncopies","type":"code","since":8,"status":"stable","bad":null,"good":null,"code":"List<String> padding = Collections.nCopies(4, \"-\");","topics":["collections","practical"],"related":["list-basics","list-of-immutable"]},
