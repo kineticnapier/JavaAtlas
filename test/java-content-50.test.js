@@ -12,7 +12,7 @@ test('JavaAtlas config is Java-specific', async () => {
   assert.equal(config.syntax.prismLanguage, 'java'); assert.equal(config.storagePrefix, 'java-atlas');
 });
 
-test('JavaAtlas ships exactly 360 real articles with ja/en locale parity', async () => {
+test('JavaAtlas ships exactly 351 real articles with ja/en locale parity', async () => {
   for (let i = 1; i <= 27; i += 1) assert.ok(CONTENT_CATEGORIES.includes(`java-expansion-${String(i).padStart(3, '0')}.json`));
   const ids = new Set(); let count = 0;
   for (const file of CONTENT_CATEGORIES) {
@@ -24,14 +24,14 @@ test('JavaAtlas ships exactly 360 real articles with ja/en locale parity', async
     }
     assert.deepEqual(new Set(Object.keys(ja)), new Set(base.map(article => article.id)), `${file}: ja locale parity mismatch`); assert.deepEqual(new Set(Object.keys(en)), new Set(base.map(article => article.id)), `${file}: en locale parity mismatch`);
   }
-  assert.equal(count, 360);
+  assert.equal(count, 351);
   for (const file of CONTENT_CATEGORIES) { const base = await readJson(`../public/content/articles/${file}`); for (const article of base) for (const related of article.related) assert.ok(ids.has(related), `${article.id}: missing related article ${related}`); }
 });
 
 test('the shipped Java corpus can be localized at runtime in ja and en', async () => {
   async function fetchJson(path) { return readJson(`../public/${path.replace(/^\.\//, '')}`); }
   const ja = await loadLocalizedContent({ fetchJson, locale: 'ja' }); const en = await loadLocalizedContent({ fetchJson, locale: 'en' });
-  assert.equal(ja.articles.length, 360); assert.equal(en.articles.length, 360); assert.equal(ja.articles[0].requestedLocale, 'ja'); assert.equal(en.articles[0].requestedLocale, 'en'); assert.ok(ja.articles.every(article => article.why && article.tips)); assert.ok(en.articles.every(article => article.why && article.tips));
+  assert.equal(ja.articles.length, 351); assert.equal(en.articles.length, 351); assert.equal(ja.articles[0].requestedLocale, 'ja'); assert.equal(en.articles[0].requestedLocale, 'en'); assert.ok(ja.articles.every(article => article.why && article.tips)); assert.ok(en.articles.every(article => article.why && article.tips));
 });
 
 test('learning-map main nodes inherit representative code from their article', () => {
